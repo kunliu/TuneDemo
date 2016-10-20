@@ -1,0 +1,34 @@
+{
+  "characters": [
+    {
+      "name": "John Snow",
+      "house": "Stark",
+      "image": "http://iphrack.com/tune_demo/tyrion.jpg",
+      "biography": "He knows nothing."
+    },
+    {
+      "name": "Daenerys Targaryen",
+      "house": "Targaryen",
+      "image": "http://iphrack.com/tune_demo/tyrion.jpg",
+      "biography": "Where are her dragons?"
+    },
+    {
+      "name": "Tyrion Lannister",
+      "house": "Lannister",
+      "image": "http://iphrack.com/tune_demo/tyrion.jpg",
+      "biography": "He drinks, and he knows things."
+    },
+    {
+      "name": "Arya Stark",
+      "house": "Stark",
+      "image": "http://iphrack.com/tune_demo/tyrion.jpg",
+      "biography": "She used to have no name."
+    },
+    {
+      "name": "Jamie Lannister",
+      "house": "Lannister",
+      "image": "http://iphrack.com/tune_demo/tyrion.jpg",
+      "biography": "He does things for love."
+    }
+  ]
+}
