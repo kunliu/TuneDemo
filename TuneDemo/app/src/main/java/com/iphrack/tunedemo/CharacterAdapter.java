@@ -12,6 +12,7 @@ import android.widget.TextView;
  */
 public class CharacterAdapter extends ArrayAdapter{
 
+
     public CharacterAdapter(Context context, int resource) {
         super(context, resource);
     }
