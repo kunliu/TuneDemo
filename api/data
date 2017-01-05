@@ -1,31 +1,53 @@
 characters[0]
   name = John Snow
   house = Stark
-  image = http://iphrack.com/tune_demo/tyrion.jpg
+  image = http://iphrack.com/tune_demo/img/john.jpg
   biography = He knows nothing.
 
 characters[1]
   name = Daenerys Targaryen
   house = Targaryen
-  image = http://iphrack.com/tune_demo/tyrion.jpg
+  image = http://iphrack.com/tune_demo/img/daenerys.jpg
   biography = Where are her dragons?
 
 characters[2]
   name = Tyrion Lannister
   house = Lannister
-  image = http://iphrack.com/tune_demo/tyrion.jpg
+  image = http://iphrack.com/tune_demo/img/tyrion.jpg
   biography = He drinks, and he knows things.
 
 characters[3]
   name = Arya Stark
   house = Stark
-  image = http://iphrack.com/tune_demo/tyrion.jpg
+  image = http://iphrack.com/tune_demo/img/arya.jpg
   biography = She used to have no name.
 
 characters[4]
   name = Jamie Lannister
   house = Lannister
-  image = http://iphrack.com/tune_demo/tyrion.jpg
+  image = http://iphrack.com/tune_demo/img/jamie.jpg
   biography = He does things for love.
 
+characters[5]
+  name = Cersei Lannister
+  house = Lannister
+  image = http://iphrack.com/tune_demo/img/cersei.jpg
+  biography = He does things for love.
 
+characters[6]
+  name = Sansa Stark 
+  house = Stark 
+  image = http://iphrack.com/tune_demo/img/sansa.jpg
+  biography = He does things for love.
+
+characters[7]
+  name = Theon Greyjoy 
+  house = Greyjoy 
+  image = http://iphrack.com/tune_demo/img/theon.jpg
+  biography = He was Prince of Winterfell briefly.
+
+characters[8]
+  name = Ramsay Bolton 
+  house = Bolton 
+  image = http://iphrack.com/tune_demo/img/ramsay.jpg
+  biography = I don't know why he's on this list.
