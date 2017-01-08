@@ -5,6 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.internal.LinkedTreeMap;
+
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,6 +50,7 @@ public class MainActivity extends AppCompatActivity  implements Callback{
     @Override
     public void onResponse(Call call, Response response) {
         Log.d("ddv",response.body().toString());
+        ArrayList list = parseCharacterListFromResponse(response);
     }
 
     @Override
@@ -53,5 +61,21 @@ public class MainActivity extends AppCompatActivity  implements Callback{
     public interface TuneDemoService {
         @GET("tune_demo/")
         Call<Object> listCharacters();
+    }
+
+    private ArrayList parseCharacterListFromResponse(Response response){
+
+        Gson gson = new Gson();
+        ArrayList list = new ArrayList<>();
+
+        LinkedTreeMap map = (LinkedTreeMap) response.body();
+        JsonArray arr = gson.toJsonTree(map.get("characters")).getAsJsonArray();
+
+        for(int i=0;i<arr.size();i++){
+            JsonObject obj = (JsonObject) arr.get(i);
+            Character character = gson.fromJson(obj,Character.class);
+            ((ArrayList) list).add(character);
+        }
+        return list;
     }
 }
