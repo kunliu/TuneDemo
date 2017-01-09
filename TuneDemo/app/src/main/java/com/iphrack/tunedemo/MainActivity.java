@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity  implements Callback{
 
         listView = (ListView)findViewById(R.id.character_list);
 
-        adapter = new CharacterAdapter(this,0);
-        listView.setAdapter(adapter);
-
         loadCharacters();
     }
 
@@ -49,8 +46,9 @@ public class MainActivity extends AppCompatActivity  implements Callback{
 
     @Override
     public void onResponse(Call call, Response response) {
-        Log.d("ddv",response.body().toString());
-        ArrayList list = parseCharacterListFromResponse(response);
+        final ArrayList list = parseCharacterListFromResponse(response);
+        adapter = new CharacterAdapter(this,0,list);
+        listView.setAdapter(adapter);
     }
 
     @Override

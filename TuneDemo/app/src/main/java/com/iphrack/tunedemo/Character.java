@@ -11,11 +11,11 @@ public class Character {
     public String name;
 
     @SerializedName("house")
-    private String house;
+    public String house;
 
     @SerializedName("image")
-    private String image;
+    public String image;
 
     @SerializedName("biography")
-    private String biography;
+    public String biography;
 }

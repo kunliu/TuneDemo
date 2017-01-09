@@ -1,0 +1,3 @@
+1)  Basic empty project structure, AndroidManifest.xml, builde.gradle
+2) 
+
