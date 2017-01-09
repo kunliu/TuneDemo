@@ -1,0 +1,9 @@
+1)  Basic empty project structure, AndroidManifest.xml, builde.gradle
+2) 
+
+
+http://stackoverflow.com/questions/3572463/what-is-context-on-android
+https://developer.android.com/guide/components/activities/activity-lifecycle.html
+
+
+
