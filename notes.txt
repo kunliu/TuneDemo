@@ -12,3 +12,17 @@ git checkout -b starter_1 origin/starter_1
 
 
 
+Retrofit retrofit = new Retrofit.Builder()
+
+
+TuneService service = retrofit.create(TuneService.class);
+Call<Object> call = service.listCharacters();
+
+
+
+LinkedTreeMap map = (LinkedTreeMap)response.body();
+JsonArray jsonArray = gson.toJsonTree(map.get("characters")).getAsJsonArray();
+
+
+JsonObject obj = jsonArray.get(i).getAsJsonObject();
+Character character = gson.fromJson(obj,Character.class);
