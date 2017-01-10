@@ -9,19 +9,24 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by Kyle on 2017-01-08.
  */
 
 public class CharacterAdapter extends ArrayAdapter {
-    public CharacterAdapter(Context context, int resource) {
+    ArrayList list;
+
+    public CharacterAdapter(Context context, int resource, ArrayList arrayList) {
         super(context, resource);
+        list = arrayList;
     }
 
     @Nullable
     @Override
     public Object getItem(int position) {
-        return super.getItem(position);
+        return list.get(position);
     }
 
     @NonNull
@@ -31,14 +36,16 @@ public class CharacterAdapter extends ArrayAdapter {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         convertView = inflater.inflate(R.layout.character_row,null);
 
+        Character character = (Character) list.get(position);
+
         TextView textView = (TextView) convertView.findViewById(R.id.character_name);
-        textView.setText("Hello World:"+position);
+        textView.setText(character.name);
 
         return convertView;
     }
 
     @Override
     public int getCount() {
-        return 10;
+        return list.size();
     }
 }

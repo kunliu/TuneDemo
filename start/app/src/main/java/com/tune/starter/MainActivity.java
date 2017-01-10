@@ -5,6 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.internal.LinkedTreeMap;
+
+import java.util.ArrayList;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,10 +29,7 @@ public class MainActivity extends AppCompatActivity implements Callback{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        adapter = new CharacterAdapter(this,0);
-
         listView = (ListView) findViewById(R.id.character_list);
-        listView.setAdapter(adapter);
 
         loadCharacters();
     }
@@ -41,9 +45,20 @@ public class MainActivity extends AppCompatActivity implements Callback{
         call.enqueue(this);
     }
 
+
+    public interface TuneService{
+        @GET("tune_demo/")
+        Call<Object> listCharacters();
+    }
+
     @Override
     public void onResponse(Call call, Response response) {
-        Log.d("ddv",response.toString());
+//        Log.d("ddv",response.toString());
+
+        ArrayList list = parseCharacterResponse(response);
+
+        adapter = new CharacterAdapter(this,0,list);
+        listView.setAdapter(adapter);
     }
 
     @Override
@@ -51,11 +66,20 @@ public class MainActivity extends AppCompatActivity implements Callback{
         Log.d("ddv",t.toString());
     }
 
-    public interface TuneService{
-        @GET("tune_demo/")
-        Call<Object> listCharacters();
+    private ArrayList parseCharacterResponse(Response response){
+        Gson gson = new Gson();
+
+        ArrayList list = new ArrayList();
+
+        LinkedTreeMap map = (LinkedTreeMap)response.body();
+
+        JsonArray jsonArray = gson.toJsonTree(map.get("characters")).getAsJsonArray();
+
+        for(int i = 0;i<jsonArray.size();i++){
+            JsonObject obj = jsonArray.get(i).getAsJsonObject();
+            Character character = gson.fromJson(obj,Character.class);
+            list.add(character);
+        }
+        return list;
     }
-
-
-
 }
