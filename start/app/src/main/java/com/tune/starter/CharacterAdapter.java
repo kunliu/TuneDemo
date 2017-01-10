@@ -1,6 +1,7 @@
 package com.tune.starter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -36,12 +37,30 @@ public class CharacterAdapter extends ArrayAdapter {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         convertView = inflater.inflate(R.layout.character_row,null);
 
-        Character character = (Character) list.get(position);
+        final Character character = (Character) list.get(position);
 
         TextView textView = (TextView) convertView.findViewById(R.id.character_name);
         textView.setText(character.name);
 
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchActivityForCharacter(character);
+            }
+        });
+
         return convertView;
+    }
+
+    private void launchActivityForCharacter(Character character){
+
+        Intent intent = new Intent(getContext(),DetailActivity.class);
+
+        intent.putExtra("name",character.name);
+        intent.putExtra("image",character.image);
+        intent.putExtra("bio",character.biography);
+
+        getContext().startActivity(intent);
     }
 
     @Override
