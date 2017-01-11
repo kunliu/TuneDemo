@@ -18,6 +18,6 @@ compile 'com.squareup.picasso:picasso:2.5.2'
 The starter_x branches are different stages of code completion from the starter project code.
 
 
-kyle@myshyft.com
+audrey@tune.com
 
-https://www.facebook.com/kyleliu.ca
+kyle@myshyft.com
